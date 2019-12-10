@@ -45,7 +45,7 @@ export default class Homepage extends Component {
     if (this.state.isLoading) {
       return (
         <View>
-          <Text>Loading</Text>
+          <Text style={styles.loading}>Loading...</Text>
         </View>
       );
     } else {
@@ -59,13 +59,14 @@ export default class Homepage extends Component {
           }}
         >
           <View style={styles.header}>
-            <Text style={styles.boldText}> RunningMan</Text>
+            <Text style={styles.boldText}> Saviar</Text>
           </View>
           <View style={styles.welcome}>
             <Text style={styles.welcomeText}>
-              {" "}
-              Welcome to RunningMan {this.state.username}. You have set Your
-              start point to "Manchester Federation house"
+              Welcome to Saviar {this.state.username.toUpperCase()},{"\n"} a
+              clean route through impure air!{"\n"}
+              You have set Your start point to "Manchester Federation house".
+              Please, select on te below map were you would like to go
             </Text>
           </View>
           <View style={styles.endpoint}>
@@ -91,13 +92,21 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     fontWeight: "bold",
     fontSize: 30,
-    alignSelf: "center"
+    alignSelf: "center",
+    color: "#24416b"
+  },
+  loading: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 100,
+    fontSize: 40,
+    fontWeight: "bold"
   },
   welcomeText: {
     alignItems: "center",
-    // fontWeight: "bold",
     justifyContent: "center",
     paddingBottom: 40,
-    paddingLeft: 40
+    paddingLeft: 40,
+    color: "#24354f"
   }
 });

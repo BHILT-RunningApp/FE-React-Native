@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
 import MapView from "react-native-maps";
 
 export default class EndPointMap extends Component {
@@ -23,9 +23,9 @@ export default class EndPointMap extends Component {
     const { longitudeDelta, latitudeDelta, latitude, longitude } = this.props;
     const { endLatitude, endLongitude } = this.state;
     return (
-      <View style={{ flex: 3, alignItems: "center", padding: 20 }}>
+      <View style={{ flex: 3, alignItems: "center", padding: 10 }}>
         <View style={styles.endpoint}>
-          <Text> Set final route point: </Text>
+          <Text style={styles.textendpoint}> Set final route point </Text>
         </View>
         <View>
           <TouchableOpacity onPress={evt => this.handlePress(evt)}>
@@ -56,6 +56,11 @@ export default class EndPointMap extends Component {
               />
             </MapView>
           </TouchableOpacity>
+          <View style={styles.button}>
+            <Button title="Find best route" />
+            {/* need to add in button on press function for linking info with map route 
+            also, need to create a patch request wuth the correct coordinates fo rthe endpoint*/}
+          </View>
         </View>
       </View>
     );
@@ -63,16 +68,18 @@ export default class EndPointMap extends Component {
 }
 
 const styles = StyleSheet.create({
-  endpoint: {
+  textendpoint: {
     alignItems: "center",
     fontWeight: "bold",
     justifyContent: "center",
-    paddingBottom: 40
+    paddingBottom: 40,
+    color: "#24354f",
+    fontSize: 20
   },
   map: {
     // position: "absolute",
-    width: 300,
-    height: 300
+    width: 350,
+    height: 350
   },
   radius: {
     height: 40,
@@ -93,5 +100,8 @@ const styles = StyleSheet.create({
     borderRadius: 20 / 2,
     overflow: "hidden",
     backgroundColor: "#007AFF"
+  },
+  button: {
+    flex: 4
   }
 });
