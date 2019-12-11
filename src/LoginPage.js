@@ -23,24 +23,24 @@ export default class Login extends React.Component{
         //sends user/password to api function and then goes to homepage
     
 
-    login = () => {
+    // login = () => {
         
         
-        const {userName, passWord} = this.state;
+    //     const {userName, passWord} = this.state;
         
-        getUser(userName, passWord).then((res)=>{
+    //     getUser(userName, passWord).then((res)=>{
             
-            if(res){
+    //         if(res){
 
-                return this.props.navigation.navigate('HomePage');
-             }
+    //             return this.props.navigation.navigate('HomePage');
+    //          }
             
-        }
+    //     }
           
 
-        )    
+    //     )    
 
-    }
+    // }
 
    
 
@@ -68,14 +68,32 @@ export default class Login extends React.Component{
                     <Button
                                 style = {styles.btn}
                                 title="Log in"
-                                onPress={() => this.props.navigation.navigate('Home')}>
+                                onPress={() => {
+        
+        
+                                    const {userName, passWord} = this.state;
+                                    
+                                    getUser(userName, passWord).then((res)=>{
+                                        console.log(res)
+                                        
+                                        if(res){
+                            
+                                            return this.props.navigation.navigate('HomePage');
+                                         }
+                                        
+                                    }
+                                      
+                            
+                                    )    
+                            
+                                }}>
                      </Button>
 
 
                     <Button 
                                 style = {styles.btn}
                                 title="Sign Up"
-                                onPress={() => this.signUp(userName, email, passWord, currentLocation)}>
+                                onPress={() => this.props.navigation.navigate('Home')}>
                      </Button>
      
                 </View>
